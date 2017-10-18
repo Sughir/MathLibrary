@@ -8,7 +8,7 @@ import name.sugawara.hiroshi.math.precision.Precision;
 
 /**
  * BigDecimal でアークコサイン(逆余弦)関数 {@code acos(x)}を求める.
- * 
+ *
  * @author Hiroshi Sugawara
  * @version $Id: ArcCosine.java 109 2010-06-13 04:26:48Z sugawara $ *
  * @since 1.1
@@ -24,7 +24,7 @@ public strictfp class ArcCosine implements
 
   /**
    * 精度を指定する.
-   * 
+   *
    * @param precision
    *          精度
    */
@@ -34,7 +34,7 @@ public strictfp class ArcCosine implements
 
   /**
    * {@Link BigDecimal}でアークコサイン(逆余弦)関数 {@code acos(x)} を求める.
-   * 
+   *
    * @param argument
    *          ラジアンで表した BigDecimal型の角度
    * @param p
@@ -68,12 +68,13 @@ public strictfp class ArcCosine implements
   /**
    * 指定された角度の逆余弦 (アークコサイン) を返す. <br />
    * 引数の値が-1から1までの範囲外のとき、ArithmeticExceptionを返す。
-   * 
+   *
    * @param argument
    *          ラジアンで表した BigDecimal型の角度
    * @return 逆余弦 (アークコサイン)
    * @see FunctionOfSingleVariable#getDependentVariable(Number)
    */
+  @Override
   public final BigDecimal getDependentVariable(final BigDecimal argument) {
 
     return ArcCosine.acos(argument, this.precision);

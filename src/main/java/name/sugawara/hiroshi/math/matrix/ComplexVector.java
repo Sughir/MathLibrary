@@ -1,24 +1,24 @@
 /*
  * 作成日: 2003/09/23
- * 
+ *
  */
 package name.sugawara.hiroshi.math.matrix;
 
 import java.util.Arrays;
-
-import name.sugawara.hiroshi.math.complex.DoubleComplex;
 
 import org.apache.commons.lang.builder.CompareToBuilder;
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.apache.commons.lang.builder.ToStringBuilder;
 
+import name.sugawara.hiroshi.math.complex.DoubleComplex;
+
 /**
  * doulble型複素数行ベクトル.
- * 
+ *
  * @author Hiroshi Sugawara
  * @version $Id: ComplexVector.java 109 2010-06-13 04:26:48Z sugawara $
- * 
+ *
  * Created Date : 2005/07/24 19:40:34
  */
 
@@ -26,21 +26,21 @@ public final class ComplexVector extends RowVector implements Comparable<Complex
 
   /**
    * 実数部. {@code real}
-   * 
+   *
    * @since 2004/08/14
    */
   private double[] real;
 
   /**
    * 虚数部. {@code imaginary}
-   * 
+   *
    * @since 2004/08/14
    */
   private double[] imaginary;
 
   /**
    * 配列から行ベクトルを生成.
-   * 
+   *
    * @param complexVector
    *          配列
    * @since 1.1
@@ -56,7 +56,7 @@ public final class ComplexVector extends RowVector implements Comparable<Complex
 
   /**
    * DoubleMatrix型からdouble型行ベクトルを生成.
-   * 
+   *
    * @param matrix
    *          Matrix型行列
    * @since 1.1
@@ -71,7 +71,7 @@ public final class ComplexVector extends RowVector implements Comparable<Complex
 
   /**
    * 二つの配列を実部、虚部として複素数ベクトルを作成.
-   * 
+   *
    * @param real
    *          実部
    * @param imaginary
@@ -88,7 +88,7 @@ public final class ComplexVector extends RowVector implements Comparable<Complex
 
   /**
    * 二つのDoubleVector型オブジェクトを実部、虚部として複素数ベクトルを作成.
-   * 
+   *
    * @param real
    *          実部
    * @param imaginary
@@ -105,7 +105,7 @@ public final class ComplexVector extends RowVector implements Comparable<Complex
 
   /**
    * サイズがrowの, 値がすべて0の行ベクトルを生成.
-   * 
+   *
    * @param row
    *          行ベクトルのサイズ
    * @since 1.1
@@ -116,7 +116,7 @@ public final class ComplexVector extends RowVector implements Comparable<Complex
 
   /**
    * 値がすべてs, 長さが row の行ベクトルを生成.
-   * 
+   *
    * @param row
    *          行ベクトルのサイズ
    * @param s
@@ -132,7 +132,7 @@ public final class ComplexVector extends RowVector implements Comparable<Complex
 
   /**
    * ベクトルの個々の要素に対する絶対値をベクトル.
-   * 
+   *
    * @since 1.1
    * @return ベクトル要素に対する絶対値をベクトル
    */
@@ -146,7 +146,7 @@ public final class ComplexVector extends RowVector implements Comparable<Complex
 
   /**
    * ベクトルの個々の要素の逆余弦(arc cosine).
-   * 
+   *
    * @since 1.1
    * @return ベクトルの個々の要素に対する逆正弦
    */
@@ -160,7 +160,7 @@ public final class ComplexVector extends RowVector implements Comparable<Complex
 
   /**
    * ベクトルの各要素にvalueを加算する.
-   * 
+   *
    * @param value
    *          値
    * @return thisの各要素にvalueを加えた値
@@ -172,7 +172,7 @@ public final class ComplexVector extends RowVector implements Comparable<Complex
 
   /**
    * ベクトル同士の加算.
-   * 
+   *
    * @param v
    *          値
    * @return this + v を返す.
@@ -192,7 +192,7 @@ public final class ComplexVector extends RowVector implements Comparable<Complex
 
   /**
    * ベクトルの個々の要素である複素数の偏角.
-   * 
+   *
    * @return 偏角
    * @since 1.1
    */
@@ -206,7 +206,7 @@ public final class ComplexVector extends RowVector implements Comparable<Complex
 
   /**
    * ベクトルの個々の要素の逆正弦(arc sine).
-   * 
+   *
    * @since 1.1
    * @return ベクトルの個々の要素に対する逆正弦
    */
@@ -220,7 +220,7 @@ public final class ComplexVector extends RowVector implements Comparable<Complex
 
   /**
    * Check if size(a) == size(b).
-   * 
+   *
    * @param v
    *          チェックしたい対象となるベクトル
    * @since 2004/08/03
@@ -233,7 +233,7 @@ public final class ComplexVector extends RowVector implements Comparable<Complex
 
   /**
    * オブジェクトのクローン. オブジェクトはディープコピーされる.
-   * 
+   *
    * @return ベクトル
    * @throws CloneNotSupportedException クローンがサポートされていないとき
    * @since 1.1
@@ -247,7 +247,7 @@ public final class ComplexVector extends RowVector implements Comparable<Complex
 
   /**
    * 2つのベクトルを連結する.
-   * 
+   *
    * @param rear
    *          後方に連結されるベクトル
    * @return 指定された2つのベクトルを連結したベクトルを返す
@@ -271,7 +271,7 @@ public final class ComplexVector extends RowVector implements Comparable<Complex
 
   /**
    * 複素数の共役複素数を求める. <br />
-   * 
+   *
    * @since 1.1
    * @return 現在のオブジェクトの共役複素数を返す.
    */
@@ -282,7 +282,7 @@ public final class ComplexVector extends RowVector implements Comparable<Complex
   /**
    * 2つのベクトルのconvolution(畳み込み)を返す. <br />
    * 返されたベクトルのサイズは2つの配列のサイズの和から1を引いた値になる.
-   * 
+   *
    * @param h
    *          システム(配列)
    * @return サイズが x.size() + h.size() - 1 のdouble[]型を返す
@@ -315,7 +315,7 @@ public final class ComplexVector extends RowVector implements Comparable<Complex
    * ベクトルのauto-correlation(自己相関関数)をベクトルで返す. <br />
    * 返されたベクトルのサイズはベクトルの2倍から1を引いた値になる.<br/> サイズが 2 * this.size() - 1
    * のdouble[]型を返す.
-   * 
+   *
    * @return サイズが 2 * this.size() - 1 のdouble[]型
    * @since 1.1
    */
@@ -327,7 +327,7 @@ public final class ComplexVector extends RowVector implements Comparable<Complex
    * 2つのベクトルのcross-correlation(相互相関関数)を返す. <br />
    * 返されたベクトルのサイズは2つのベクトルのサイズの和から1を引いた値になる. <br />
    * システムhに対して現在のオブジェクトを信号としている.
-   * 
+   *
    * @param h
    *          システム(ベクトル)
    * @return サイズが this.size() + h.size() - 1 のdouble[]型を返す
@@ -339,7 +339,7 @@ public final class ComplexVector extends RowVector implements Comparable<Complex
 
   /**
    * d ベクトルの個々の要素の余弦(cosine).
-   * 
+   *
    * @since 1.1
    * @return ベクトルの個々の要素に対する正弦
    */
@@ -354,7 +354,7 @@ public final class ComplexVector extends RowVector implements Comparable<Complex
   /**
    * 複素数の hyperbolic cosine(双曲線余弦)を求める. <br />
    * sinh(x) を求める.
-   * 
+   *
    * @return 現在のオブジェクトのhyperbolic cosine(双曲線余弦)
    * @since 1.1
    */
@@ -371,7 +371,7 @@ public final class ComplexVector extends RowVector implements Comparable<Complex
   /**
    * ベクトルの指定されたインデックスの要素を削除する. <br />
    * 要素を削除するとベクトルのサイズが1小さくなる.
-   * 
+   *
    * @param index
    *          要素を削除する位置
    * @return 要素を1つ削除されたベクトルを返す
@@ -405,7 +405,7 @@ public final class ComplexVector extends RowVector implements Comparable<Complex
 
   /**
    * 配列の各要素に指定された値を除算.
-   * 
+   *
    * @since 1.1
    * @param value
    *          配列の各要素に除算する値
@@ -418,7 +418,7 @@ public final class ComplexVector extends RowVector implements Comparable<Complex
 
   /**
    * 配列どうしの除算. 双方の配列はそれぞれサイズが同じである必要がある.
-   * 
+   *
    * @since 1.1
    * @param v
    *          除算する配列
@@ -436,7 +436,7 @@ public final class ComplexVector extends RowVector implements Comparable<Complex
 
   /**
    * 配列の要素のexp関数 exp(x).
-   * 
+   *
    * @since 1.1
    * @return 指定された配列の個々の要素をexp関数に代入した配列
    */
@@ -450,7 +450,7 @@ public final class ComplexVector extends RowVector implements Comparable<Complex
 
   /**
    * ベクトルの配列の要素を左右逆順にする.
-   * 
+   *
    * @return 指定された配列要素を逆順にしたベクトル
    * @since 1.1
    */
@@ -467,7 +467,7 @@ public final class ComplexVector extends RowVector implements Comparable<Complex
 
   /**
    * 行ベクトルの要素を取得する. Get a single element.
-   * 
+   *
    * @param i
    *          Row index.
    * @return vector(i)
@@ -484,7 +484,7 @@ public final class ComplexVector extends RowVector implements Comparable<Complex
 
   /**
    * 行ベクトルから配列に変換する.
-   * 
+   *
    * @return 配列
    * @since 1.1
    */
@@ -498,7 +498,7 @@ public final class ComplexVector extends RowVector implements Comparable<Complex
 
   /**
    * 現在のオブジェクトより虚部を取り出す.
-   * 
+   *
    * @since 1.1
    * @return 虚部を返す
    * @uml.property name="imaginary"
@@ -509,7 +509,7 @@ public final class ComplexVector extends RowVector implements Comparable<Complex
 
   /**
    * 現在のオブジェクトより実部を取り出す.
-   * 
+   *
    * @since 1.1
    * @return 実部を返す
    * @uml.property name="real"
@@ -520,7 +520,7 @@ public final class ComplexVector extends RowVector implements Comparable<Complex
 
   /**
    * 始点と終点を指定して部分ベクトルを取り出す. Get a subvector.
-   * 
+   *
    * @param i0
    *          Initial col index
    * @param i1
@@ -541,7 +541,7 @@ public final class ComplexVector extends RowVector implements Comparable<Complex
 
   /**
    * 特定の列のインデックスの部分ベクトルを取り出す. Get a subvector.
-   * 
+   *
    * @param col
    *          Array of column indices.
    * @return x(c(:))
@@ -561,7 +561,7 @@ public final class ComplexVector extends RowVector implements Comparable<Complex
 
   /**
    * 無限大ノルムを返す.
-   * 
+   *
    * @since 1.1
    * @return 無限大ノルム
    */
@@ -571,7 +571,7 @@ public final class ComplexVector extends RowVector implements Comparable<Complex
 
   /**
    * ベクトルの内積.
-   * 
+   *
    * @param v
    *          vector
    * @return 内積
@@ -589,7 +589,7 @@ public final class ComplexVector extends RowVector implements Comparable<Complex
   /**
    * 配列に指定された値を指定されたインデックスに挿入する. <br />
    * 要素を挿入すると配列のサイズが1大きくなる.
-   * 
+   *
    * @param element
    *          挿入する要素
    * @param index
@@ -624,7 +624,7 @@ public final class ComplexVector extends RowVector implements Comparable<Complex
 
   /**
    * ベクトルの個々の要素の対数.
-   * 
+   *
    * @since 1.1
    * @return ベクトルの個々の要素に対する対数
    */
@@ -639,7 +639,7 @@ public final class ComplexVector extends RowVector implements Comparable<Complex
   /**
    * 複素数の常用対数(底を10とする対数)を求める. <br />
    * log_10(x) を求める.
-   * 
+   *
    * @return 現在のオブジェクトの常用対数をComplex型(複素数)で返す.
    * @since 1.1
    */
@@ -666,7 +666,7 @@ public final class ComplexVector extends RowVector implements Comparable<Complex
   /**
    * 複素数の底を2とする対数を求める. <br />
    * log_2(x) を求める.
-   * 
+   *
    * @return 現在のオブジェクトの底を2とする対数をComplex型(複素数)で返す.
    * @since 1.1
    */
@@ -692,7 +692,7 @@ public final class ComplexVector extends RowVector implements Comparable<Complex
 
   /**
    * ベクトルの最大要素を求める.
-   * 
+   *
    * @since 1.1
    * @return 最大要素
    */
@@ -742,7 +742,7 @@ public final class ComplexVector extends RowVector implements Comparable<Complex
 
   /**
    * ベクトルの要素の平均(average).
-   * 
+   *
    * @return 平均
    * @since 1.1
    */
@@ -752,7 +752,7 @@ public final class ComplexVector extends RowVector implements Comparable<Complex
 
   /**
    * ベクトルの最小要素を求める.
-   * 
+   *
    * @since 1.1
    * @return 最小要素
    */
@@ -771,7 +771,7 @@ public final class ComplexVector extends RowVector implements Comparable<Complex
 
   /**
    * ベクトルの実数倍.
-   * 
+   *
    * @since 1.1
    * @param times
    *          ベクトルを実数倍する値
@@ -784,7 +784,7 @@ public final class ComplexVector extends RowVector implements Comparable<Complex
 
   /**
    * 配列どうしの乗算. 双方の配列はそれぞれサイズが同じである必要がある.
-   * 
+   *
    * @since 1.1
    * @param multiplier
    *          乗算する配列
@@ -807,7 +807,7 @@ public final class ComplexVector extends RowVector implements Comparable<Complex
 
   /**
    * 符号をマイナスにして返す. Unary minus.
-   * 
+   *
    * @return -this
    */
   public ComplexVector negate() {
@@ -825,7 +825,7 @@ public final class ComplexVector extends RowVector implements Comparable<Complex
 
   /**
    * 無限小ノルムを返す.
-   * 
+   *
    * @since 1.1
    * @return 無限小ノルム
    */
@@ -835,7 +835,7 @@ public final class ComplexVector extends RowVector implements Comparable<Complex
 
   /**
    * 2乗ノルムを返す.
-   * 
+   *
    * @since 1.1
    * @return 2乗ノルム
    */
@@ -846,7 +846,7 @@ public final class ComplexVector extends RowVector implements Comparable<Complex
 
   /**
    * n乗ノルムを返す.
-   * 
+   *
    * @since 1.1
    * @param exponent
    *          累乗
@@ -858,7 +858,7 @@ public final class ComplexVector extends RowVector implements Comparable<Complex
 
   /**
    * 1乗ノルムを返す.
-   * 
+   *
    * @since 1.1
    * @return 1乗ノルム
    */
@@ -868,7 +868,7 @@ public final class ComplexVector extends RowVector implements Comparable<Complex
 
   /**
    * ベクトル要素の累乗.
-   * 
+   *
    * @since 1.1
    * @param d
    *          指数
@@ -885,7 +885,7 @@ public final class ComplexVector extends RowVector implements Comparable<Complex
 
   /**
    * ベクトルの要素の積(product).
-   * 
+   *
    * @return 積
    * @since 1.1
    */
@@ -899,7 +899,7 @@ public final class ComplexVector extends RowVector implements Comparable<Complex
 
   /**
    * ベクトルの指定した位置に要素をセットする. Set a single element.
-   * 
+   *
    * @param i
    *          index.
    * @param s
@@ -916,7 +916,7 @@ public final class ComplexVector extends RowVector implements Comparable<Complex
 
   /**
    * 部分ベクトルをセットする. Set a subvector.
-   * 
+   *
    * @param i0
    *          Initial index
    * @param i1
@@ -946,7 +946,7 @@ public final class ComplexVector extends RowVector implements Comparable<Complex
 
   /**
    * 部分ベクトルをセットする. Set a subvector.
-   * 
+   *
    * @param col
    *          Array of col indices.
    * @param x
@@ -974,7 +974,7 @@ public final class ComplexVector extends RowVector implements Comparable<Complex
 
   /**
    * ベクトルの個々の要素の正弦(sine).
-   * 
+   *
    * @since 1.1
    * @return ベクトルの個々の要素に対する正弦
    */
@@ -989,7 +989,7 @@ public final class ComplexVector extends RowVector implements Comparable<Complex
   /**
    * 複素数の hyperbolic sine(双曲線正弦)を求める. <br />
    * sinh(x) を求める.
-   * 
+   *
    * @return 現在のオブジェクトのhyperbolic sine(双曲線正弦)をComplex型(複素数)で返す.
    * @since 1.1
    */
@@ -1003,7 +1003,7 @@ public final class ComplexVector extends RowVector implements Comparable<Complex
 
   /**
    * 行ベクトルのサイズを返す.
-   * 
+   *
    * @return 配列のサイズ
    * @since 1.1
    */
@@ -1013,7 +1013,7 @@ public final class ComplexVector extends RowVector implements Comparable<Complex
 
   /**
    * ベクトルの要素の平方.
-   * 
+   *
    * @since 1.1
    * @return ベクトルの個々の要素を平方したベクトル
    */
@@ -1027,7 +1027,7 @@ public final class ComplexVector extends RowVector implements Comparable<Complex
 
   /**
    * ベクトルの各要素にvalueを減算する.
-   * 
+   *
    * @param value
    *          値
    * @return thisの各要素にvalueを引いた値
@@ -1039,7 +1039,7 @@ public final class ComplexVector extends RowVector implements Comparable<Complex
 
   /**
    * 減算.
-   * 
+   *
    * @param v
    *          値
    * @return this - v を返す.
@@ -1060,7 +1060,7 @@ public final class ComplexVector extends RowVector implements Comparable<Complex
 
   /**
    * ベクトルの要素の和(summation).
-   * 
+   *
    * @return 和
    * @since 1.1
    */
@@ -1075,7 +1075,7 @@ public final class ComplexVector extends RowVector implements Comparable<Complex
 
   /**
    * ベクトルの個々の要素の正接(tangent).
-   * 
+   *
    * @since 1.1
    * @return ベクトルの個々の要素に対する正弦
    */
@@ -1090,7 +1090,7 @@ public final class ComplexVector extends RowVector implements Comparable<Complex
   /**
    * 複素数の hyperbolic tangent(双曲線正接)を求める. <br />
    * sinh(x) を求める.
-   * 
+   *
    * @return 現在のオブジェクトのhyperbolic tangent(双曲線正接)をComplex型(複素数)で返す.
    * @since 1.1
    */
@@ -1104,7 +1104,7 @@ public final class ComplexVector extends RowVector implements Comparable<Complex
 
   /**
    * 一行this.size()列の行列、Matrix型オブジェクトに変換して返す.
-   * 
+   *
    * @return Matrix型のオブジェクト
    * @since 1.1
    */
@@ -1122,7 +1122,7 @@ public final class ComplexVector extends RowVector implements Comparable<Complex
 
   /**
    * 現在のオブジェクトがotherと同値であればtrueを返す.
-   * 
+   *
    * @param other
    *          ComplexVectorオブジェクト
    * @return 同値であればtrueを返す
@@ -1140,7 +1140,7 @@ public final class ComplexVector extends RowVector implements Comparable<Complex
 
   /**
    * オブジェクトのハッシュコードを求める.
-   * 
+   *
    * @return ハッシュコード
    * @see java.lang.Object#hashCode()
    */
@@ -1151,7 +1151,7 @@ public final class ComplexVector extends RowVector implements Comparable<Complex
 
   /**
    * 現在のオブジェクトの文字列表現を返す.
-   * 
+   *
    * @return 文字列表現
    * @see java.lang.Object#toString()
    */
@@ -1163,17 +1163,18 @@ public final class ComplexVector extends RowVector implements Comparable<Complex
 
   /**
    * オブジェクトを比較する.
-   * 
+   *
    * <pre>
    *      現在のオブジェクトの絶対値が対象となるオブジェクトより大きければ1,
    *      小さければ-1,同一であれば0を返す.
    * </pre>
-   * 
+   *
    * @param other
    *          比較対象オブジェクト
    * @return int型の値
    * @see java.lang.Comparable#compareTo(java.lang.Object)
    */
+  @Override
   public int compareTo(final ComplexVector other) {
     return new CompareToBuilder().append(this.abs(), other.abs()).toComparison();
   }

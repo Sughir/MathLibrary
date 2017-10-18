@@ -1,7 +1,8 @@
+package name.sugawara.hiroshi.math.matrix;
+
 /*
  * Created on 2003/07/25
  */
-package name.sugawara.hiroshi.math.matrix;
 
 import java.io.Serializable;
 import java.util.Arrays;
@@ -10,7 +11,7 @@ import name.sugawara.hiroshi.math.function.typedouble.DoubleMath;
 
 /**
  * double型行ベクトル.
- * 
+ *
  * @author sugawara
  * @version $Id: DoubleVector.java 109 2010-06-13 04:26:48Z sugawara $
  * @since 1.1
@@ -19,35 +20,35 @@ public final class DoubleVector extends RowVector implements Cloneable, Serializ
 
   /**
    * シリアルバージョンID.
-   * 
+   *
    * @since 2007/02/25 19:33:22
    */
   private static final long serialVersionUID = -7708761953748281551L;
 
   /**
    * ハッシュコードを求めるときに使用する.
-   * 
+   *
    * @since 2007/02/21 17:36:54
    */
   private transient int     hashCode;
 
   /**
    * toString()メソッドを実行するために使用する.
-   * 
+   *
    * @since 2007/02/21 19:05:20
    */
   private transient String  toString;
 
   /**
    * ベクトル{@code vector}.
-   * 
+   *
    * @since 2005/10/28 4:09:48
    */
   private final double[]    vector;
 
   /**
    * 配列から行ベクトルを生成.
-   * 
+   *
    * @param vector
    *          配列
    * @since 1.1
@@ -58,7 +59,7 @@ public final class DoubleVector extends RowVector implements Cloneable, Serializ
 
   /**
    * 値がすべてsの行ベクトルを生成.
-   * 
+   *
    * @param row
    *          行ベクトルのサイズ
    * @param s
@@ -73,7 +74,7 @@ public final class DoubleVector extends RowVector implements Cloneable, Serializ
 
   /**
    * 値がすべて0の行ベクトルを生成.
-   * 
+   *
    * @param row
    *          行ベクトルのサイズ
    * @since 1.1
@@ -84,7 +85,7 @@ public final class DoubleVector extends RowVector implements Cloneable, Serializ
 
   /**
    * 行ベクトルから配列に変換する.
-   * 
+   *
    * @return 配列
    * @since 1.1
    */
@@ -94,7 +95,7 @@ public final class DoubleVector extends RowVector implements Cloneable, Serializ
 
   /**
    * 行ベクトルの要素を取得する. Get a single element.
-   * 
+   *
    * @param i
    *          Row index.
    * @return vector(i)
@@ -111,7 +112,7 @@ public final class DoubleVector extends RowVector implements Cloneable, Serializ
 
   /**
    * 行ベクトルのサイズを返す.
-   * 
+   *
    * @return 配列のサイズ
    * @since 1.1
    */
@@ -121,7 +122,7 @@ public final class DoubleVector extends RowVector implements Cloneable, Serializ
 
   /**
    * ベクトル同士の加算.
-   * 
+   *
    * @param v
    *          値
    * @return this + v を返す.
@@ -138,7 +139,7 @@ public final class DoubleVector extends RowVector implements Cloneable, Serializ
 
   /**
    * ベクトルの各要素にvalueを加算する.
-   * 
+   *
    * @param value
    *          値
    * @return thisの各要素にvalueを加えた値
@@ -150,7 +151,7 @@ public final class DoubleVector extends RowVector implements Cloneable, Serializ
 
   /**
    * 減算.
-   * 
+   *
    * @param v
    *          値
    * @return this - v を返す.
@@ -167,7 +168,7 @@ public final class DoubleVector extends RowVector implements Cloneable, Serializ
 
   /**
    * ベクトルの各要素にvalueを減算する.
-   * 
+   *
    * @param value
    *          値
    * @return thisの各要素にvalueを引いた値
@@ -179,7 +180,7 @@ public final class DoubleVector extends RowVector implements Cloneable, Serializ
 
   /**
    * ベクトルの要素の和(summation).
-   * 
+   *
    * @return 和
    * @since 1.1
    */
@@ -193,7 +194,7 @@ public final class DoubleVector extends RowVector implements Cloneable, Serializ
 
   /**
    * ベクトルの要素の積(product).
-   * 
+   *
    * @return 積
    * @since 1.1
    */
@@ -208,7 +209,7 @@ public final class DoubleVector extends RowVector implements Cloneable, Serializ
 
   /**
    * ベクトルの要素の平均(average).
-   * 
+   *
    * @return 平均
    * @since 1.1
    */
@@ -218,7 +219,7 @@ public final class DoubleVector extends RowVector implements Cloneable, Serializ
 
   /**
    * ベクトルの内積.
-   * 
+   *
    * @param v
    *          ベクトル
    * @return 内積
@@ -233,21 +234,21 @@ public final class DoubleVector extends RowVector implements Cloneable, Serializ
   }
 
   /**
-   * Check if size(a) == size(b).
-   * 
+   *  size(a) == size(b) かどうかを確認する。
+   *
    * @param v
    *          チェックしたい対象となるベクトル
    * @since 2004/08/03
    */
   private void checkVectorSize(final DoubleVector v) {
     if (this.vector.length != v.vector.length) {
-      throw new IllegalArgumentException("The each vector size must be same.");
+      throw new IllegalArgumentException("双方のベクトルのサイズは同一です。");
     }
   }
 
   /**
    * ベクトルの配列の要素を左右逆順にする.
-   * 
+   *
    * @return 指定された配列要素を逆順にしたベクトルを返す
    * @since 1.1
    */
@@ -262,7 +263,7 @@ public final class DoubleVector extends RowVector implements Cloneable, Serializ
 
   /**
    * ベクトルの最大要素を求める.
-   * 
+   *
    * @since 1.1
    * @return 最大要素
    */
@@ -276,7 +277,7 @@ public final class DoubleVector extends RowVector implements Cloneable, Serializ
 
   /**
    * ベクトルの最小要素を求める.
-   * 
+   *
    * @since 1.1
    * @return 最小要素
    */
@@ -290,7 +291,7 @@ public final class DoubleVector extends RowVector implements Cloneable, Serializ
 
   /**
    * 配列どうしの除算. 双方の配列はそれぞれサイズが同じである必要がある.
-   * 
+   *
    * @since 1.1
    * @param v
    *          除算する配列
@@ -308,7 +309,7 @@ public final class DoubleVector extends RowVector implements Cloneable, Serializ
 
   /**
    * 配列の各要素に指定された値を除算.
-   * 
+   *
    * @since 1.1
    * @param value
    *          配列の各要素に除算する値
@@ -321,7 +322,7 @@ public final class DoubleVector extends RowVector implements Cloneable, Serializ
 
   /**
    * 配列どうしの乗算 双方の配列はそれぞれサイズが同じである必要がある.
-   * 
+   *
    * @since 1.1
    * @param multiplier
    *          乗算する配列
@@ -339,7 +340,7 @@ public final class DoubleVector extends RowVector implements Cloneable, Serializ
 
   /**
    * ベクトルの実数倍.
-   * 
+   *
    * @since 1.1
    * @param times
    *          ベクトルを実数倍する値
@@ -352,7 +353,7 @@ public final class DoubleVector extends RowVector implements Cloneable, Serializ
 
   /**
    * ベクトル要素の累乗.
-   * 
+   *
    * @since 1.1
    * @param d
    *          指数
@@ -369,7 +370,7 @@ public final class DoubleVector extends RowVector implements Cloneable, Serializ
 
   /**
    * ベクトルの要素の平方.
-   * 
+   *
    * @since 1.1
    * @return ベクトルの個々の要素を平方したベクトル
    */
@@ -383,7 +384,7 @@ public final class DoubleVector extends RowVector implements Cloneable, Serializ
 
   /**
    * ベクトルの個々の要素に対する絶対値をベクトル.
-   * 
+   *
    * @since 1.1
    * @return ベクトル要素に対する絶対値をベクトル
    */
@@ -397,7 +398,7 @@ public final class DoubleVector extends RowVector implements Cloneable, Serializ
 
   /**
    * ベクトルの個々の要素の対数.
-   * 
+   *
    * @since 1.1
    * @return ベクトルの個々の要素に対する対数
    */
@@ -411,7 +412,7 @@ public final class DoubleVector extends RowVector implements Cloneable, Serializ
 
   /**
    * ベクトルの個々の要素の常用対数.
-   * 
+   *
    * @since 1.1
    * @return ベクトルの個々の要素に対する常用対数
    */
@@ -422,9 +423,10 @@ public final class DoubleVector extends RowVector implements Cloneable, Serializ
     }
     return new DoubleVector(c);
   }
+
   /**
    * ベクトルの個々の要素の常用対数.
-   * 
+   *
    * @since 1.1
    * @return ベクトルの個々の要素に対する常用対数
    */
@@ -435,9 +437,10 @@ public final class DoubleVector extends RowVector implements Cloneable, Serializ
     }
     return new DoubleVector(c);
   }
+
   /**
    * ベクトルの個々の要素の正弦(sine).
-   * 
+   *
    * @since 1.1
    * @return ベクトルの個々の要素に対する正弦
    */
@@ -451,7 +454,7 @@ public final class DoubleVector extends RowVector implements Cloneable, Serializ
 
   /**
    * ベクトルの個々の要素の余弦(cosine).
-   * 
+   *
    * @since 1.1
    * @return ベクトルの個々の要素に対する正弦
    */
@@ -465,7 +468,7 @@ public final class DoubleVector extends RowVector implements Cloneable, Serializ
 
   /**
    * ベクトルの個々の要素の正接(tangent).
-   * 
+   *
    * @since 1.1
    * @return ベクトルの個々の要素に対する正弦
    */
@@ -479,7 +482,7 @@ public final class DoubleVector extends RowVector implements Cloneable, Serializ
 
   /**
    * ベクトルの個々の要素の逆正弦(arc sine).
-   * 
+   *
    * @since 1.1
    * @return ベクトルの個々の要素に対する逆正弦
    */
@@ -493,7 +496,7 @@ public final class DoubleVector extends RowVector implements Cloneable, Serializ
 
   /**
    * ベクトルの個々の要素の逆余弦(arc cosine).
-   * 
+   *
    * @since 1.1
    * @return ベクトルの個々の要素に対する逆正弦
    */
@@ -507,7 +510,7 @@ public final class DoubleVector extends RowVector implements Cloneable, Serializ
 
   /**
    * ベクトルの個々の要素の逆正接(arc tangent).
-   * 
+   *
    * @since 1.1
    * @return ベクトルの個々の要素に対する逆正弦
    */
@@ -523,7 +526,7 @@ public final class DoubleVector extends RowVector implements Cloneable, Serializ
    * ベクトルの要素の4象限逆正接 Four Quadrant Arc Tangent.
    * 現在のオブジェクトを、ラジアンで表した、arctan関数でyを変数とする ベクトル とし指定された角度の4象限逆正接 (4象限アークタンジェント)
    * を返す
-   * 
+   *
    * @since 1.1
    * @param x
    *          ラジアンで表した arctan関数でxを変数とする配列
@@ -540,7 +543,7 @@ public final class DoubleVector extends RowVector implements Cloneable, Serializ
 
   /**
    * 配列の要素のexp関数 exp(x).
-   * 
+   *
    * @since 1.1
    * @return 指定された配列の個々の要素をexp関数に代入した配列
    */
@@ -554,7 +557,7 @@ public final class DoubleVector extends RowVector implements Cloneable, Serializ
 
   /**
    * n乗ノルムを返す.
-   * 
+   *
    * @since 1.1
    * @param exponent
    *          累乗
@@ -565,18 +568,8 @@ public final class DoubleVector extends RowVector implements Cloneable, Serializ
   }
 
   /**
-   * 1乗ノルムを返す.
-   * 
-   * @since 1.1
-   * @return 1乗ノルム
-   */
-  public double oneNorm() {
-    return this.abs().sum();
-  }
-
-  /**
    * 2乗ノルムを返す.
-   * 
+   *
    * @since 1.1
    * @return 2乗ノルム
    */
@@ -586,8 +579,19 @@ public final class DoubleVector extends RowVector implements Cloneable, Serializ
   }
 
   /**
+   * 1乗ノルムを返す.
+   *
+   * @since 1.1
+   * @return 1乗ノルム
+   */
+  public double oneNorm() {
+    return this.abs().sum();
+  }
+
+
+  /**
    * 無限大ノルムを返す.
-   * 
+   *
    * @since 1.1
    * @return 無限大ノルム
    */
@@ -597,7 +601,7 @@ public final class DoubleVector extends RowVector implements Cloneable, Serializ
 
   /**
    * 無限小ノルムを返す.
-   * 
+   *
    * @since 1.1
    * @return 無限小ノルム
    */
@@ -608,7 +612,7 @@ public final class DoubleVector extends RowVector implements Cloneable, Serializ
   /**
    * 2つのベクトルのconvolution(畳み込み)を返す. <br />
    * 返されたベクトルのサイズは2つの配列のサイズの和から1を引いた値になる.
-   * 
+   *
    * @param h
    *          システム(配列)
    * @return サイズが x.size() + h.size() - 1 のdouble[]型を返す
@@ -617,11 +621,11 @@ public final class DoubleVector extends RowVector implements Cloneable, Serializ
   public DoubleVector convolute(final DoubleVector h) {
     final double[] y = new double[this.vector.length + h.vector.length - 1];
     Arrays.fill(y, 0.0d);
-    int hIndex;
+    int hofIndex;
     for (int n = 0; n < y.length; n++) {
       for (int k = 0; k < this.vector.length; k++) {
-        hIndex = n - k;
-        if ((hIndex >= 0) && (hIndex < h.vector.length)) {
+        hofIndex = n - k;
+        if ((hofIndex >= 0) && (hofIndex < h.vector.length)) {
           y[n] += this.vector[k] * h.vector[n - k];
         }
       }
@@ -633,7 +637,7 @@ public final class DoubleVector extends RowVector implements Cloneable, Serializ
    * 2つのベクトルのcross-correlation(相互相関関数)を返す. <br />
    * 返されたベクトルのサイズは2つのベクトルのサイズの和から1を引いた値になる. <br />
    * システムhに対して現在のオブジェクトを信号としている.
-   * 
+   *
    * @param h
    *          システム(ベクトル)
    * @return サイズが this.size() + h.size() - 1 のdouble[]型を返す
@@ -646,7 +650,7 @@ public final class DoubleVector extends RowVector implements Cloneable, Serializ
   /**
    * ベクトルのauto-correlation(自己相関関数)をベクトルで返す. <br />
    * 返されたベクトルのサイズはベクトルの2倍から1を引いた値になる.
-   * 
+   *
    * @return サイズが 2 * this.size() - 1 のdouble[]型を返す
    * @since 1.1
    */
@@ -656,7 +660,7 @@ public final class DoubleVector extends RowVector implements Cloneable, Serializ
 
   /**
    * 一行this.size()列の行列、Matrix型オブジェクトに変換して返す.
-   * 
+   *
    * @return Matrix型のオブジェクト
    * @since 1.1
    */
@@ -671,7 +675,7 @@ public final class DoubleVector extends RowVector implements Cloneable, Serializ
 
   /**
    * オブジェクトのクローン. オブジェクトはディープコピーされる.
-   * 
+   *
    * @return ベクトル
    * @since 1.1
    * @throws CloneNotSupportedException
@@ -690,7 +694,7 @@ public final class DoubleVector extends RowVector implements Cloneable, Serializ
 
   /**
    * 符号をマイナスにして返す. Unary minus.
-   * 
+   *
    * @return -this
    * @since 1.1
    */
@@ -704,7 +708,7 @@ public final class DoubleVector extends RowVector implements Cloneable, Serializ
 
   /**
    * ベクトルの指定した位置に要素をセットする. Set a single element.
-   * 
+   *
    * @param i
    *          インデックス
    * @param s
@@ -721,7 +725,7 @@ public final class DoubleVector extends RowVector implements Cloneable, Serializ
 
   /**
    * 部分ベクトルをセットする. Set a subvector.
-   * 
+   *
    * @param i0
    *          Initial index
    * @param i1
@@ -745,7 +749,7 @@ public final class DoubleVector extends RowVector implements Cloneable, Serializ
 
   /**
    * 部分ベクトルをセットする. Set a subvector.
-   * 
+   *
    * @param col
    *          列インデックスの配列
    * @param x
@@ -767,7 +771,7 @@ public final class DoubleVector extends RowVector implements Cloneable, Serializ
 
   /**
    * 始点と終点を指定して部分ベクトルを取り出す. Get a subvector.
-   * 
+   *
    * @param i0
    *          開始-列インデックス
    * @param i1
@@ -788,7 +792,7 @@ public final class DoubleVector extends RowVector implements Cloneable, Serializ
 
   /**
    * 特定の列のインデックスの部分ベクトルを取り出す. Get a subvector.
-   * 
+   *
    * @param col
    *          列インデックスの配列
    * @return x(c(:))
@@ -808,7 +812,7 @@ public final class DoubleVector extends RowVector implements Cloneable, Serializ
 
   /**
    * 2つのベクトルを連結する.
-   * 
+   *
    * @param rear
    *          後方に連結されるベクトル
    * @return 指定された2つのベクトルを連結したベクトルを返す
@@ -831,7 +835,7 @@ public final class DoubleVector extends RowVector implements Cloneable, Serializ
   /**
    * ベクトルの指定されたインデックスの要素を削除する. <br />
    * 要素を削除するとベクトルのサイズが1小さくなる.
-   * 
+   *
    * @param index
    *          要素を削除する位置
    * @return 要素を1つ削除されたベクトルを返す
@@ -868,7 +872,7 @@ public final class DoubleVector extends RowVector implements Cloneable, Serializ
   /**
    * 配列に指定された値を指定されたインデックスに挿入する. <br />
    * 要素を挿入すると配列のサイズが1大きくなる.
-   * 
+   *
    * @param element
    *          挿入する要素
    * @param index
@@ -910,7 +914,7 @@ public final class DoubleVector extends RowVector implements Cloneable, Serializ
 
   /**
    * ベクトルの個々の要素の双曲線正弦(Hyperbolic Sine).
-   * 
+   *
    * @return ベクトルの個々の要素に対する双曲線正弦
    * @since 2005/01/04
    */
@@ -924,7 +928,7 @@ public final class DoubleVector extends RowVector implements Cloneable, Serializ
 
   /**
    * ベクトルの個々の要素の双曲線余弦(Hyperbolic Cosine).
-   * 
+   *
    * @return ベクトルの個々の要素に対する双曲線余弦
    * @since 2005/01/04
    */
@@ -938,7 +942,7 @@ public final class DoubleVector extends RowVector implements Cloneable, Serializ
 
   /**
    * ベクトルの個々の要素の双曲線正接(Hyperbolic Tangent).
-   * 
+   *
    * @return ベクトルの個々の要素に対する双曲線正接
    * @since 2005/01/04
    */
@@ -952,7 +956,7 @@ public final class DoubleVector extends RowVector implements Cloneable, Serializ
 
   /**
    * ベクトルの個々の要素の逆双曲線正弦(Inverse Hyperbolic Sine).
-   * 
+   *
    * @return ベクトルの個々の要素に対する逆双曲線正弦
    * @since 2005/01/04
    */
@@ -966,7 +970,7 @@ public final class DoubleVector extends RowVector implements Cloneable, Serializ
 
   /**
    * ベクトルの個々の要素の逆双曲線余弦(Inverse Hyperbolic Cosine).
-   * 
+   *
    * @return ベクトルの個々の要素に対する逆双曲線余弦
    * @since 2005/01/04
    */
@@ -980,7 +984,7 @@ public final class DoubleVector extends RowVector implements Cloneable, Serializ
 
   /**
    * ベクトルの個々の要素の逆双曲線正接(Inverse Hyperbolic Tangent).
-   * 
+   *
    * @return ベクトルの個々の要素に対する逆双曲線正接
    * @since 2005/01/04
    */
@@ -994,7 +998,7 @@ public final class DoubleVector extends RowVector implements Cloneable, Serializ
 
   /**
    * ベクトルの個々の要素の立方根(3√)(cube root)を求める.
-   * 
+   *
    * @return ベクトルの個々の要素に対する立方根
    * @since 2005/01/04
    */
@@ -1008,7 +1012,7 @@ public final class DoubleVector extends RowVector implements Cloneable, Serializ
 
   /**
    * 比較対象オブジェクトが同値であるかどうかを判定する.
-   * 
+   *
    * @param other
    *          比較対象オブジェクト.
    * @return ふたつのオブジェクトが同値であればtrueを返す
@@ -1027,7 +1031,7 @@ public final class DoubleVector extends RowVector implements Cloneable, Serializ
 
   /**
    * オブジェクトのハッシュコードを求める.
-   * 
+   *
    * @return ハッシュコード
    * @see java.lang.Object#hashCode()
    */
@@ -1041,7 +1045,7 @@ public final class DoubleVector extends RowVector implements Cloneable, Serializ
 
   /**
    * ベクトルの文字列表現を返す.
-   * 
+   *
    * @return 文字列
    * @see java.lang.Object#toString()
    */

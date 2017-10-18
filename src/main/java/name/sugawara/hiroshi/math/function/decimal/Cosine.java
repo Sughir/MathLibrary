@@ -9,7 +9,7 @@ import name.sugawara.hiroshi.math.precision.Precision;
 
 /**
  * BigDecimal でコサイン(余弦)関数 cos(x) を求める.
- * 
+ *
  * @author Hiroshi Sugawara
  * @version $Id: Cosine.java 109 2010-06-13 04:26:48Z sugawara $
  * @since 1.1
@@ -20,7 +20,7 @@ public final strictfp class Cosine implements FunctionOfSingleVariable<BigDecima
 
   /**
    * 精度.
-   * 
+   *
    * @uml.property name="precision"
    * @uml.associationEnd multiplicity="(1 1)"
    */
@@ -28,7 +28,7 @@ public final strictfp class Cosine implements FunctionOfSingleVariable<BigDecima
 
   /**
    * 精度を指定する.
-   * 
+   *
    * @param precision
    *          精度
    */
@@ -38,7 +38,7 @@ public final strictfp class Cosine implements FunctionOfSingleVariable<BigDecima
 
   /**
    * 指定された角度の余弦 (コサイン) を返す
-   * 
+   *
    * @param argument
    *          ラジアンで表した BigDecimal型の角度
    * @param p
@@ -76,7 +76,7 @@ public final strictfp class Cosine implements FunctionOfSingleVariable<BigDecima
   // }
   /**
    * 1から指定された角度の余弦 (コサイン) を引いた値を返す。 1 - cos(argument) を返す.
-   * 
+   *
    * @param argument
    *          ラジアンで表した BigDecimal型の角度
    * @param p
@@ -120,11 +120,12 @@ public final strictfp class Cosine implements FunctionOfSingleVariable<BigDecima
 
   /**
    * 指定された角度の余弦 (コサイン) を返す.
-   * 
+   *
    * @param argument
    *          ラジアンで表した BigDecimal型の角度
    * @return 引数の余弦 (コサイン)をBigDecimal 型で返す
    */
+  @Override
   public BigDecimal getDependentVariable(final BigDecimal argument) {
     return Cosine.oneDivideCos(argument, this.precision);
   }

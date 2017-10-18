@@ -76,7 +76,7 @@ public final strictfp class Constant {
    */
   @Deprecated
   public static BigDecimal exp(final Precision p) {
-    return Exp.e(p);
+    return Exp.exp(p);
   }
 
   /**
@@ -86,6 +86,6 @@ public final strictfp class Constant {
    * @since 1.1
    */
   public BigDecimal exp() {
-    return Exp.e(this.precision);
+    return Exp.exp(this.precision);
   }
 }

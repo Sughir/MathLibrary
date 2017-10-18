@@ -11,7 +11,7 @@ import org.apache.commons.lang.builder.HashCodeBuilder;
  * System.out.println(x + &quot; + &quot; + y + &quot;i&quot;); //複素数の除算 //complex1 から complex2
  * を除算しそれをcomplex3に代入する。 DoubleComplex complex2 = new complex(3.3, -4); DoubleComplex complex3 =
  * complex1.divide(complex2); }
- * 
+ *
  * @author Hiroshi Sugawara
  * @version $Id: DoubleComplex.java 109 2010-06-13 04:26:48Z sugawara $
  * @since 1.1
@@ -36,14 +36,14 @@ public final strictfp class DoubleComplex extends Complex implements Comparable<
 
   /**
    * シリアルバージョンID.
-   * 
+   *
    * @since 2006/02/22 3:16:04
    */
   private static final long         serialVersionUID = -6571583606333378559L;
 
   /**
    * sqrt(0.5).
-   * 
+   *
    * @since 2005/07/16 21:45:35
    */
   private static final double       SQRT05           = Math.sqrt(0.5d);
@@ -60,7 +60,7 @@ public final strictfp class DoubleComplex extends Complex implements Comparable<
 
   /**
    * 実部、虚部ともに0の複素数を生成(0の実数を生成).
-   * 
+   *
    * @since 1.1
    */
   public DoubleComplex() {
@@ -69,7 +69,7 @@ public final strictfp class DoubleComplex extends Complex implements Comparable<
 
   /**
    * 実部が0で引数で指定した虚部の複素数(純虚数)を生成.
-   * 
+   *
    * @since 1.1
    * @param y
    *          yに虚部を指定する。
@@ -80,7 +80,7 @@ public final strictfp class DoubleComplex extends Complex implements Comparable<
 
   /**
    * 実部、虚部共に引数で指定した複素数を生成.
-   * 
+   *
    * @since 1.1
    * @param x
    *          xに実部を指定する。
@@ -105,7 +105,7 @@ public final strictfp class DoubleComplex extends Complex implements Comparable<
 
   /**
    * 複素数の絶対値を求める.
-   * 
+   *
    * @since 1.1
    * @return 現在のオブジェクトの複素数の絶対値を返す。
    */
@@ -116,7 +116,7 @@ public final strictfp class DoubleComplex extends Complex implements Comparable<
   /**
    * 複素数の arc cosine(逆余弦)を求める. <br />
    * acos(x) を求める。
-   * 
+   *
    * @return 現在のオブジェクトの arc cosine(逆余弦) をComplex型(複素数)で返す。
    * @since 1.1
    */
@@ -133,7 +133,8 @@ public final strictfp class DoubleComplex extends Complex implements Comparable<
     final double b = (-2) * x * y;
     final double r = new DoubleComplex(a, b).abs();
 
-    double sqrtReal, sqrtImaginary;
+    double sqrtReal;
+    double sqrtImaginary;
 
     if (a > 0.0d) {
       sqrtReal = x - (sqrt05 * b / Math.sqrt(r + a));
@@ -154,7 +155,7 @@ public final strictfp class DoubleComplex extends Complex implements Comparable<
 
   /**
    * 複素数の加算. {@code c = a + d}
-   * 
+   *
    * @since 1.1
    * @param b
    *          加算する複素数
@@ -166,7 +167,7 @@ public final strictfp class DoubleComplex extends Complex implements Comparable<
 
   /**
    * 複素数の偏角を求める.
-   * 
+   *
    * @since 1.1
    * @return 現在のオブジェクトの複素数の偏角をRadian(ラディアン)で返す。
    */
@@ -177,7 +178,7 @@ public final strictfp class DoubleComplex extends Complex implements Comparable<
   /**
    * 複素数の arc sine(逆正弦)を求める. <br />
    * asin(x) を求める。
-   * 
+   *
    * @return 現在のオブジェクトの arc sine(逆正弦) をComplex型(複素数)で返す。
    * @since 1.1
    */
@@ -192,7 +193,8 @@ public final strictfp class DoubleComplex extends Complex implements Comparable<
     final double a = 1 + x * x - y * y;
     final double b = 2 * x * y;
     final double r = new DoubleComplex(a, b).abs();
-    double sqrtReal, sqrtImaginary;
+    double sqrtReal;
+    double sqrtImaginary;
 
     if (a > 0.0d) {
       sqrtReal = (DoubleComplex.SQRT05 * Math.sqrt(r + a)) - y;
@@ -213,12 +215,13 @@ public final strictfp class DoubleComplex extends Complex implements Comparable<
 
   /**
    * 指定されたオブジェクトと現在のオブジェクトの絶対値を比較する.
-   * 
+   *
    * @param c
    *          指定されたComplex型オブジェクト
    * @return このComplexの絶対値がobjより小さい場合は負の数、等しい場合は 0、大きい場合は正の数
    * @since 1.1
    */
+  @Override
   public int compareTo(final DoubleComplex c) {
     if (this == c) {
       return 0;
@@ -244,7 +247,7 @@ public final strictfp class DoubleComplex extends Complex implements Comparable<
 
   /**
    * 複素数の共役複素数を求める.
-   * 
+   *
    * @since 1.1
    * @return 現在のオブジェクトの共役複素数を返す。
    */
@@ -254,7 +257,7 @@ public final strictfp class DoubleComplex extends Complex implements Comparable<
 
   /**
    * 複素数のコサイン(余弦)を求める. {@code cos(x)} を求める。
-   * 
+   *
    * @return 現在のオブジェクトのコサイン(余弦)をComplex型(複素数)で返す。
    * @since 1.1
    */
@@ -275,7 +278,7 @@ public final strictfp class DoubleComplex extends Complex implements Comparable<
   /**
    * 複素数の hyperbolic cosine(双曲線余弦)を求める. <br />
    * sinh(x) を求める。
-   * 
+   *
    * @return 現在のオブジェクトのhyperbolic cosine(双曲線余弦)をComplex型(複素数)で返す。
    * @since 1.1
    */
@@ -289,7 +292,7 @@ public final strictfp class DoubleComplex extends Complex implements Comparable<
 
   /**
    * 複素数の除算. October.13.2002 上位桁あふれ対策済み <br />
-   * 
+   *
    * @since 1.1
    * @param b
    *          除算する複素数
@@ -299,7 +302,10 @@ public final strictfp class DoubleComplex extends Complex implements Comparable<
     final double bRealSquare = Math.pow(b.real, 2);
     final double bImaginarySquare = Math.pow(b.imaginary, 2);
     final double geometricNotMean = bRealSquare + bImaginarySquare;
-    final double w, d, realResult, imaginaryResult;
+    final double w;
+    final double d;
+    final double realResult;
+    final double imaginaryResult;
     DoubleComplex result;
     if (geometricNotMean <= Double.MAX_VALUE || geometricNotMean == Double.POSITIVE_INFINITY) {
       final double x = (b.real * this.real + this.imaginary * b.imaginary) / geometricNotMean;
@@ -323,7 +329,7 @@ public final strictfp class DoubleComplex extends Complex implements Comparable<
 
   /**
    * 現在のオブジェクトの値をdouble型の複素数の絶対値としてlong型に変換して返す.
-   * 
+   *
    * @since 1.1
    * @return 複素数の絶対値をlong型で返す。
    */
@@ -335,7 +341,7 @@ public final strictfp class DoubleComplex extends Complex implements Comparable<
   /**
    * 指定されたオブジェクトと現在のオブジェクトの要素(複素数の実部、虚部の値を)が等しいかどうかを比較する. {@link Object#getClass()}
    * を使用しているので、Complexクラスの派生クラスのオブジェクトとを比較する場合は必ずfalseとなる。
-   * 
+   *
    * @param obj
    *          指定されたオブジェクト
    * @return 2つの値が等しいとき真を返す
@@ -358,7 +364,7 @@ public final strictfp class DoubleComplex extends Complex implements Comparable<
 
   /**
    * 自然対数の底の複素数乗を求める. {@code exp(x)} を求める。 複素数の累乗にはドモアブルの定理を使用している。
-   * 
+   *
    * @return 自然対数の底の現在の複素数オブジェクト乗をComplex型(複素数)で返す。
    * @since 1.1
    */
@@ -371,7 +377,7 @@ public final strictfp class DoubleComplex extends Complex implements Comparable<
 
   /**
    * 現在のオブジェクトの値をdouble型の複素数の絶対値としてfloat型に変換して返す.
-   * 
+   *
    * @since 1.1
    * @return 複素数の絶対値をfloat型で返す。
    */
@@ -382,7 +388,7 @@ public final strictfp class DoubleComplex extends Complex implements Comparable<
 
   /**
    * 現在のオブジェクトより虚部を取り出す.
-   * 
+   *
    * @since 1.1
    * @return 虚部を返す
    */
@@ -392,7 +398,7 @@ public final strictfp class DoubleComplex extends Complex implements Comparable<
 
   /**
    * 現在のオブジェクトより実部を取り出す.
-   * 
+   *
    * @since 1.1
    * @return 実部を返す
    */
@@ -402,7 +408,7 @@ public final strictfp class DoubleComplex extends Complex implements Comparable<
 
   /**
    * 現在のオブジェクトの値をdouble型の複素数の絶対値としてint型に変換して返す.
-   * 
+   *
    * @since 1.1
    * @return 複素数の絶対値をint型で返す。
    */
@@ -413,7 +419,7 @@ public final strictfp class DoubleComplex extends Complex implements Comparable<
 
   /**
    * 複素数の自然対数を求める. {@code log(x)} を求める.
-   * 
+   *
    * @return 現在のオブジェクトの自然対数をComplex型(複素数)で返す。
    * @since 1.1
    */
@@ -431,7 +437,7 @@ public final strictfp class DoubleComplex extends Complex implements Comparable<
 
   /**
    * 複素数の常用対数(底を10とする対数)を求める. log_10(x) を求める。
-   * 
+   *
    * @return 現在のオブジェクトの常用対数をComplex型(複素数)で返す。
    * @since 1.1
    */
@@ -450,7 +456,7 @@ public final strictfp class DoubleComplex extends Complex implements Comparable<
   /**
    * 複素数の底を2とする対数を求める. <br />
    * log_2(x) を求める。
-   * 
+   *
    * @return 現在のオブジェクトの底を2とする対数をComplex型(複素数)で返す。
    * @since 1.1
    */
@@ -469,7 +475,7 @@ public final strictfp class DoubleComplex extends Complex implements Comparable<
 
   /**
    * 現在のオブジェクトの値をdouble型の複素数の絶対値としてlong型に変換して返す.
-   * 
+   *
    * @since 1.1
    * @return 複素数の絶対値をlong型で返す。
    */
@@ -480,7 +486,7 @@ public final strictfp class DoubleComplex extends Complex implements Comparable<
 
   /**
    * 2つのComplex値の絶対値のうち大きい方を返す.
-   * 
+   *
    * @since 1.1
    * @param b
    *          比較対照のComplex(複素数)型の値のひとつ
@@ -492,7 +498,7 @@ public final strictfp class DoubleComplex extends Complex implements Comparable<
 
   /**
    * 2つのComplex値の絶対値のうち小さい方を返す.
-   * 
+   *
    * @since 1.1
    * @param b
    *          比較対照のComplex(複素数)型の値のひとつ
@@ -504,7 +510,7 @@ public final strictfp class DoubleComplex extends Complex implements Comparable<
 
   /**
    * 複素数の乗算.
-   * 
+   *
    * @since 1.1
    * @param b
    *          乗算する複素数
@@ -519,7 +525,7 @@ public final strictfp class DoubleComplex extends Complex implements Comparable<
   /**
    * 現在のオブジェクトの符号に負を掛けたComplexオブジェクトを返す. 値が {@code -this (this.new DoubleComplex(-1.0d, 0.0d))}
    * のComplexを返す
-   * 
+   *
    * @since 1.1
    * @return -this
    */
@@ -529,7 +535,7 @@ public final strictfp class DoubleComplex extends Complex implements Comparable<
 
   /**
    * 複素数のべき乗を複素数乗で求める. 複素数の累乗にはドモアブルの定理を使用している。
-   * 
+   *
    * @since 1.1
    * @param b
    *          累乗したいComplex(複素数)型の値
@@ -573,7 +579,7 @@ public final strictfp class DoubleComplex extends Complex implements Comparable<
 
   /**
    * 複素数のべき乗を実数乗で求める. 複素数の累乗にはドモアブルの定理を使用している。
-   * 
+   *
    * @since 1.1
    * @param d
    *          累乗したいdouble型の値
@@ -592,7 +598,7 @@ public final strictfp class DoubleComplex extends Complex implements Comparable<
 
   /**
    * 複素数のべき乗を整数乗で求める. 引数を0にすると実部1,虚部0の複素数を返す。
-   * 
+   *
    * @since 1.1
    * @param n
    *          べき乗したい整数値
@@ -626,7 +632,7 @@ public final strictfp class DoubleComplex extends Complex implements Comparable<
 
   /**
    * 複素数のサイン(正弦)を求める. sin(x) を求める.
-   * 
+   *
    * @return 現在のオブジェクトのサイン(正弦)をComplex型(複素数)で返す.
    * @since 1.1
    */
@@ -645,7 +651,7 @@ public final strictfp class DoubleComplex extends Complex implements Comparable<
 
   /**
    * 複素数の hyperbolic sine(双曲線正弦)を求める. sinh(x) を求める。
-   * 
+   *
    * @return 現在のオブジェクトのhyperbolic sine(双曲線正弦)をComplex型(複素数)で返す。
    * @since 1.1
    */
@@ -660,7 +666,7 @@ public final strictfp class DoubleComplex extends Complex implements Comparable<
   /**
    * 複素数の平方根を求める. 複素数の平方にはドモアブルの定理を使用している.
    * October.13.2002 桁落ち対策対応済み.
-   * 
+   *
    * @since 1.1
    * @return 現在のオブジェクトの複素数の平方根を返す。
    */
@@ -694,7 +700,7 @@ public final strictfp class DoubleComplex extends Complex implements Comparable<
 
   /**
    * 複素数の減算.
-   * 
+   *
    * @since 1.1
    * @param b
    *          減算する複素数
@@ -706,7 +712,7 @@ public final strictfp class DoubleComplex extends Complex implements Comparable<
 
   /**
    * 現在のオブジェクトの実部と虚部を交換したComplexオブジェクトを返す.
-   * 
+   *
    * @since 1.1
    * @return 現在のComplexオブジェクトから実部と虚部を交換したComplexオブジェクトを返す
    */
@@ -717,7 +723,7 @@ public final strictfp class DoubleComplex extends Complex implements Comparable<
   /**
    * 複素数のタンジェント(正接)を求める.
    * tan(x) を求める。
-   * 
+   *
    * @return 現在のオブジェクトのタンジェント(正接)をComplex型(複素数)で返す。
    * @since 1.1
    */
@@ -739,7 +745,7 @@ public final strictfp class DoubleComplex extends Complex implements Comparable<
   /**
    * 複素数の hyperbolic tangent(双曲線正接)を求める.
    * sinh(x) を求める。
-   * 
+   *
    * @return 現在のオブジェクトのhyperbolic tangent(双曲線正接)をComplex型(複素数)で返す。
    * @since 1.1
    */
@@ -755,7 +761,7 @@ public final strictfp class DoubleComplex extends Complex implements Comparable<
 
   /**
    * 複素数 z = x + i * y を文字列に変換.
-   * 
+   *
    * @since 1.1
    * @return "実部 + i虚部" 形式で出力し String 型で返す。
    */
@@ -780,7 +786,7 @@ public final strictfp class DoubleComplex extends Complex implements Comparable<
 
   /**
    * ハッシュコードを返す.
-   * 
+   *
    * @return ハッシュコード
    * @since 2004/08/24
    * @see java.lang.Object#hashCode()
@@ -792,7 +798,7 @@ public final strictfp class DoubleComplex extends Complex implements Comparable<
 
   /**
    * 複素数オブジェクトを生成するFactory Method.
-   * 
+   *
    * @param x
    *          実数部
    * @param y

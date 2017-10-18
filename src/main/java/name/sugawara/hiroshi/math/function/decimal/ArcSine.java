@@ -8,7 +8,7 @@ import name.sugawara.hiroshi.math.precision.Precision;
 
 /**
  * BigDecimal でアークサイン(逆正弦)関数 asin(x) を求める.
- * 
+ *
  * @author Hiroshi Sugawara
  * @version $Id: ArcSine.java 109 2010-06-13 04:26:48Z sugawara $
  * @since 1.1
@@ -19,7 +19,7 @@ public strictfp class ArcSine implements FunctionOfSingleVariable<BigDecimal, Bi
 
   /**
    * 精度.
-   * 
+   *
    * @uml.property name="precision"
    * @uml.associationEnd multiplicity="(1 1)"
    */
@@ -27,7 +27,7 @@ public strictfp class ArcSine implements FunctionOfSingleVariable<BigDecimal, Bi
 
   /**
    * 精度を指定する.
-   * 
+   *
    * @param precision
    *          精度
    */
@@ -37,11 +37,12 @@ public strictfp class ArcSine implements FunctionOfSingleVariable<BigDecimal, Bi
 
   /**
    * 計算する.
-   * 
+   *
    * @param argument
    *          ラジアンで表した BigDecimal型の角度
    * @return 引数の逆余弦 (アークコサイン)をBigDecimal 型で返す
    */
+  @Override
   public final BigDecimal getDependentVariable(final BigDecimal argument) {
 
     final Constant c = new Constant(this.precision);
@@ -51,7 +52,7 @@ public strictfp class ArcSine implements FunctionOfSingleVariable<BigDecimal, Bi
 
   /**
    * 指定された角度の逆正弦 (アークサイン) を返す. 引数の値が-1から1までの範囲外のとき、ArithmeticExceptionを返す.
-   * 
+   *
    * @param argument
    *          ラジアンで表した BigDecimal型の角度
    * @param p

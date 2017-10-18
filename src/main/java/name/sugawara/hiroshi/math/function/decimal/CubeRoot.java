@@ -9,7 +9,7 @@ import name.sugawara.hiroshi.math.precision.Precision;
 
 /**
  * 立方根をBigDecimal型で求める.
- * 
+ *
  * @author Hiroshi Sugawara
  * @version $Id: CubeRoot.java 109 2010-06-13 04:26:48Z sugawara $
  * @since 1.1
@@ -20,7 +20,7 @@ public class CubeRoot implements FunctionOfSingleVariable<BigDecimal, BigDecimal
 
   /**
    * 誤差. {@code precision}
-   * 
+   *
    * @since 2004/08/14
    * @uml.property name="precision"
    * @uml.associationEnd multiplicity="(1 1)"
@@ -29,7 +29,7 @@ public class CubeRoot implements FunctionOfSingleVariable<BigDecimal, BigDecimal
 
   /**
    * 精度を指定する.
-   * 
+   *
    * @param precision
    *          精度
    */
@@ -39,15 +39,16 @@ public class CubeRoot implements FunctionOfSingleVariable<BigDecimal, BigDecimal
 
   /**
    * 立方根を実数の範囲内でBigDecimal型で求める.
-   * 
+   *
    * 値が負のとき、正のときの結果に符号をつけたものが返される.
-   * 
+   *
    * このメソッドでは虚数解を返さない.
-   * 
+   *
    * @param argument
    *          値
    * @return aの立方根のうち実数解を返す
    */
+  @Override
   public final BigDecimal getDependentVariable(final BigDecimal argument) {
     return CubeRoot.cubeRoot(argument, this.precision);
   }
@@ -55,7 +56,7 @@ public class CubeRoot implements FunctionOfSingleVariable<BigDecimal, BigDecimal
   /**
    * 立方根を実数の範囲内でBigDecimal型で求める. <br />
    * 値が負のとき、正のときの結果に符号をつけたものが返される。 このメソッドでは虚数解を返さない。
-   * 
+   *
    * @param a
    *          値
    * @param p
@@ -73,7 +74,8 @@ public class CubeRoot implements FunctionOfSingleVariable<BigDecimal, BigDecimal
 
       final BigDecimal two = new BigDecimal("2.0");
       final BigDecimal three = new BigDecimal("3.0");
-      BigDecimal x1, x2;
+      BigDecimal x1;
+      BigDecimal x2;
       x1 = a;
       final NandEpsilon castedP = (NandEpsilon) p;
 

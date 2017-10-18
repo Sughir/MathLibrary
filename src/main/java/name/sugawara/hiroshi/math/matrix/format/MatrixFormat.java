@@ -20,9 +20,6 @@ public class MatrixFormat implements Formattable {
    */
   private BigDecimal value;
 
-  // private String symbol,
-  // companyName,
-  // frenchCompanyName;
 
   /**
    * フォーマットを生成.
@@ -49,13 +46,11 @@ public class MatrixFormat implements Formattable {
    * @param precision
    *          精度
    */
+  @Override
   public void formatTo(final Formatter formatter, final int flags, final int width,
       final int precision) {
 
-    // public StockName(String symbol, String companyName, String
-    // frenchCompanyName) { ... }
     StringBuilder sb = new StringBuilder();
-    // decide form of name
     String name = "";
     String result = String.format("%+6.5e", new Object[]
     { this.value });

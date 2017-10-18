@@ -7,14 +7,14 @@ import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Locale;
 
-import name.sugawara.hiroshi.math.function.typedouble.DoubleMath;
-
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 
+import name.sugawara.hiroshi.math.function.typedouble.DoubleMath;
+
 /**
  * double型行列. Mathworks, Inc のJAMA(A Java Matrix Package)を参考にして作成.
- * 
+ *
  * @author Hiroshi Sugawara
  * @version $Id: DoubleMatrix.java 109 2010-06-13 04:26:48Z sugawara $
  * @since 1.1
@@ -25,22 +25,22 @@ public final strictfp class DoubleMatrix extends Matrix implements Cloneable, Se
 
   /**
    * シリアルバージョンID.
-   * 
+   *
    * @since 2005/10/28 14:11:40
    */
   private static final long serialVersionUID = 1L;
 
   /**
    * 行数.
-   * 
-   * @serial column dimention
+   *
+   * @serial 行の次元column dimention
    * @uml.property name="col"
    */
   private int               col;
 
   /**
    * row * col サイズの行列の要素を格納するための配列.
-   * 
+   *
    * @serial internal array storage.
    * @uml.property name="matrix" readOnly="true" multiplicity="(0 -1)" dimension="1"
    */
@@ -48,7 +48,7 @@ public final strictfp class DoubleMatrix extends Matrix implements Cloneable, Se
 
   /**
    * 列数.
-   * 
+   *
    * @serial row dimention
    * @uml.property name="row"
    */
@@ -56,7 +56,7 @@ public final strictfp class DoubleMatrix extends Matrix implements Cloneable, Se
 
   /**
    * 1次元配列から、配列を列数で区切って行列を作る.
-   * 
+   *
    * @param vals
    *          列でパックされたdouble型の一次元配列
    * @param row
@@ -82,7 +82,7 @@ public final strictfp class DoubleMatrix extends Matrix implements Cloneable, Se
 
   /**
    * 既存の2次元配列から行列クラスを生成.
-   * 
+   *
    * @param matrix
    *          double型の2次元配列.
    */
@@ -99,7 +99,7 @@ public final strictfp class DoubleMatrix extends Matrix implements Cloneable, Se
 
   /**
    * 要素がすべて0 の m * n サイズの行列を作る. Construct an m-by-n matrix of zeros.
-   * 
+   *
    * @param row
    *          Number of rows.
    * @param col
@@ -111,7 +111,7 @@ public final strictfp class DoubleMatrix extends Matrix implements Cloneable, Se
 
   /**
    * 要素がすべてs の m * n サイズの行列を作る. Construct an m-by-n matrix of s.
-   * 
+   *
    * @param row
    *          行数
    * @param col
@@ -130,7 +130,7 @@ public final strictfp class DoubleMatrix extends Matrix implements Cloneable, Se
 
   /**
    * 行列の個々の要素に対する絶対値を行列で返す.
-   * 
+   *
    * @since 1.1
    * @return ベクトル要素に対する絶対値行列
    */
@@ -146,7 +146,7 @@ public final strictfp class DoubleMatrix extends Matrix implements Cloneable, Se
 
   /**
    * 行列の個々の要素の逆余弦(arc cosine).
-   * 
+   *
    * @since 1.1
    * @return 行列の個々の要素に対する逆正弦
    */
@@ -162,7 +162,7 @@ public final strictfp class DoubleMatrix extends Matrix implements Cloneable, Se
 
   /**
    * C = a + b.
-   * 
+   *
    * @param b
    *          another matrix
    * @return a + b
@@ -180,7 +180,7 @@ public final strictfp class DoubleMatrix extends Matrix implements Cloneable, Se
 
   /**
    * 行列の個々の要素の逆正弦(arc sine).
-   * 
+   *
    * @since 1.1
    * @return 行列の個々の要素に対する逆正弦
    */
@@ -196,7 +196,7 @@ public final strictfp class DoubleMatrix extends Matrix implements Cloneable, Se
 
   /**
    * 行列の個々の要素の逆正接(arc tangent).
-   * 
+   *
    * @since 1.1
    * @return 行列の個々の要素に対する逆正弦
    */
@@ -213,7 +213,7 @@ public final strictfp class DoubleMatrix extends Matrix implements Cloneable, Se
   /**
    * 行列の要素の4象限逆正接 Four Quadrant Arc Tangent. 現在のオブジェクトを、ラジアンで表した、 arctan関数でyを変数とする行列 とし指定された
    * 角度の4象限逆正接 (4象限アークタンジェント) を返す
-   * 
+   *
    * @since 1.1
    * @param x
    *          ラジアンで表した arctan関数でxを変数とする配列
@@ -231,22 +231,22 @@ public final strictfp class DoubleMatrix extends Matrix implements Cloneable, Se
   }
 
   /**
-   * Check if size(a) == size(b).
-   * 
+   * size(a) == size(b)　かどうかを確認する。
+   *
    * @param b
-   *          matrix
+   *          行列
    * @since 2004/08/03
    */
   private void checkMatrixDimensions(final DoubleMatrix b) {
     if (b.row != this.row || b.col != this.col) {
-      throw new IllegalArgumentException("DoubleMatrix dimensions must agree.");
+      throw new IllegalArgumentException("DoubleMatrix の次元は同一である必要があります。");
     }
   }
 
   /**
    * オブジェクトのクローン. <br />
    * 行列の要素はdeep copyされる.
-   * 
+   *
    * @since 1.1
    * @return 行列
    * @throws CloneNotSupportedException
@@ -270,7 +270,7 @@ public final strictfp class DoubleMatrix extends Matrix implements Cloneable, Se
 
   /**
    * 行列の個々の要素の余弦(cosine).
-   * 
+   *
    * @since 1.1
    * @return 行列の個々の要素に対する正弦
    */
@@ -286,7 +286,7 @@ public final strictfp class DoubleMatrix extends Matrix implements Cloneable, Se
 
   /**
    * 配列の各要素に指定された値を除算.
-   * 
+   *
    * @since 1.1
    * @param value
    *          配列の各要素に除算する値
@@ -299,7 +299,7 @@ public final strictfp class DoubleMatrix extends Matrix implements Cloneable, Se
 
   /**
    * 配列どうしの除算. 双方の配列はそれぞれサイズが同じである必要がある.
-   * 
+   *
    * @since 1.1
    * @param v
    *          除算する配列
@@ -319,7 +319,7 @@ public final strictfp class DoubleMatrix extends Matrix implements Cloneable, Se
 
   /**
    * 配列の要素のexp関数 exp(x).
-   * 
+   *
    * @since 1.1
    * @return 指定された配列の個々の要素をexp関数に代入した配列
    */
@@ -335,7 +335,7 @@ public final strictfp class DoubleMatrix extends Matrix implements Cloneable, Se
 
   /**
    * 行列の列を左右逆順に反転.
-   * 
+   *
    * @return 列を左右逆順に反転した行列
    * @since 1.1
    */
@@ -351,7 +351,7 @@ public final strictfp class DoubleMatrix extends Matrix implements Cloneable, Se
 
   /**
    * 行列の行を上下逆順に反転.
-   * 
+   *
    * @return 行を上下逆順に反転した行列を返す
    * @since 1.1
    */
@@ -367,7 +367,7 @@ public final strictfp class DoubleMatrix extends Matrix implements Cloneable, Se
 
   /**
    * 行列の要素を取得する. Get a single element.
-   * 
+   *
    * @param i
    *          Row index.
    * @param j
@@ -385,7 +385,7 @@ public final strictfp class DoubleMatrix extends Matrix implements Cloneable, Se
 
   /**
    * 行列をdouble型2次元配列に変換する. Access the internal two-dimensional array.
-   * 
+   *
    * @return Pointer to the two-dimensional array of matrix elements.
    */
   public double[][] getArray() {
@@ -394,7 +394,7 @@ public final strictfp class DoubleMatrix extends Matrix implements Cloneable, Se
 
   /**
    * 行列の行数を取得する. Get column dimension.
-   * 
+   *
    * @return col, the number of columns.
    */
   public int getColumnDimension() {
@@ -403,7 +403,7 @@ public final strictfp class DoubleMatrix extends Matrix implements Cloneable, Se
 
   /**
    * 始点と終点を指定して現在の行列から部分行列を取り出す. Get a submatrix.
-   * 
+   *
    * @param i0
    *          Initial row index
    * @param i1
@@ -431,7 +431,7 @@ public final strictfp class DoubleMatrix extends Matrix implements Cloneable, Se
 
   /**
    * 行開始位置、終了位置を指定して特定の列のインデックスの部分行列を取り出す. Get a submatrix.
-   * 
+   *
    * @param i0
    *          Initial row index
    * @param i1
@@ -457,14 +457,14 @@ public final strictfp class DoubleMatrix extends Matrix implements Cloneable, Se
   }
 
   /**
-   * Get a submatrix.
-   * 
+   * 部分行列を取得する。
+   *
    * @param row
-   *          Array of row indices.
+   *          行インデックスの配列
    * @param j0
-   *          Initial column index
+   *          先頭列番号
    * @param j1
-   *          Final column index
+   *          末端列番号
    * @return A(r(:),j0:j1)
    */
   public DoubleMatrix getMatrix(final int[] row, final int j0, final int j1) {
@@ -484,12 +484,12 @@ public final strictfp class DoubleMatrix extends Matrix implements Cloneable, Se
   }
 
   /**
-   * 特定の座標インデックスを複数個指定して現在の行列から部分行列を取り出す. Get a submatrix.
-   * 
+   * 特定の座標インデックスを複数個指定して現在の行列から部分行列を取り出す
+   *
    * @param row
-   *          Array of row indices.
+   *          行インデックスの配列
    * @param col
-   *          Array of column indices.
+   *          列インデックスの配列
    * @return A(r(:),c(:))
    */
   public DoubleMatrix getMatrix(final int[] row, final int[] col) {
@@ -503,15 +503,15 @@ public final strictfp class DoubleMatrix extends Matrix implements Cloneable, Se
         }
       }
     } catch (ArrayIndexOutOfBoundsException e) {
-      throw new ArrayIndexOutOfBoundsException("Submatrix indices.");
+      throw new ArrayIndexOutOfBoundsException("部分行列のインデックス。");
     }
     return new DoubleMatrix(x);
   }
 
   /**
-   * 行列の列数を取得する. Get row dimension.
-   * 
-   * @return row, the number of rows.
+   * 行列の行数を取得する。
+   *
+   * @return 行、行数
    */
   public int getRowDimension() {
     return this.row;
@@ -519,7 +519,7 @@ public final strictfp class DoubleMatrix extends Matrix implements Cloneable, Se
 
   /**
    * 無限大ノルムを返す.
-   * 
+   *
    * @since 1.1
    * @return 無限大ノルム
    */
@@ -529,7 +529,7 @@ public final strictfp class DoubleMatrix extends Matrix implements Cloneable, Se
 
   /**
    * 行列の個々の要素の対数.
-   * 
+   *
    * @since 1.1
    * @return 行列の個々の要素に対する対数
    */
@@ -545,7 +545,7 @@ public final strictfp class DoubleMatrix extends Matrix implements Cloneable, Se
 
   /**
    * 行列の個々の要素の常用対数.
-   * 
+   *
    * @since 1.1
    * @return 行列の個々の要素に対する常用対数
    */
@@ -561,7 +561,7 @@ public final strictfp class DoubleMatrix extends Matrix implements Cloneable, Se
 
   /**
    * 行列の各列の最大要素をベクトルで求める.
-   * 
+   *
    * @since 1.1
    * @return ベクトル
    */
@@ -580,7 +580,7 @@ public final strictfp class DoubleMatrix extends Matrix implements Cloneable, Se
 
   /**
    * 行列の列のみの各要素の平均(average)を行ベクトルで返す.
-   * 
+   *
    * @return 各列の平均値の行ベクトル
    * @since 1.1
    */
@@ -597,8 +597,8 @@ public final strictfp class DoubleMatrix extends Matrix implements Cloneable, Se
   }
 
   /**
-   * 行列の各列の最小要素をベクトル求める.
-   * 
+   * 行列の各列の最小要素をベクトルで求める.
+   *
    * @since 1.1
    * @return ベクトル
    */
@@ -617,7 +617,7 @@ public final strictfp class DoubleMatrix extends Matrix implements Cloneable, Se
 
   /**
    * Linear algebraic matrix multiplication, A * b.
-   * 
+   *
    * @param b
    *          another matrix
    * @return DoubleMatrix product, A * b
@@ -647,8 +647,8 @@ public final strictfp class DoubleMatrix extends Matrix implements Cloneable, Se
   }
 
   /**
-   * Unary minus.
-   * 
+   * 単行マイナス。
+   *
    * @return -this
    */
   public DoubleMatrix negate() {
@@ -663,7 +663,7 @@ public final strictfp class DoubleMatrix extends Matrix implements Cloneable, Se
 
   /**
    * 無限小ノルムを返す.
-   * 
+   *
    * @since 1.1
    * @return 無限小ノルム
    */
@@ -683,7 +683,7 @@ public final strictfp class DoubleMatrix extends Matrix implements Cloneable, Se
 
   /**
    * 1乗ノルムを返す.
-   * 
+   *
    * @since 1.1
    * @return 1乗ノルム
    */
@@ -693,7 +693,7 @@ public final strictfp class DoubleMatrix extends Matrix implements Cloneable, Se
 
   /**
    * 行列要素の累乗.
-   * 
+   *
    * @since 1.1
    * @param d
    *          指数
@@ -712,7 +712,7 @@ public final strictfp class DoubleMatrix extends Matrix implements Cloneable, Se
 
   /**
    * 行列要素の累乗.
-   * 
+   *
    * @param d
    *          another matrix
    * @return 行列の個々の要素を行列dの要素で累乗した行列を返す.
@@ -730,7 +730,7 @@ public final strictfp class DoubleMatrix extends Matrix implements Cloneable, Se
 
   /**
    * 行列の列のみの各要素の積(product)を行ベクトルで返す.
-   * 
+   *
    * @return 各列の要素の積の行ベクトル
    * @since 1.1
    */
@@ -751,7 +751,7 @@ public final strictfp class DoubleMatrix extends Matrix implements Cloneable, Se
 
   /**
    * 行列を反時計回りに90°回転.
-   * 
+   *
    * @return 行列
    * @since 1.1
    */
@@ -766,12 +766,12 @@ public final strictfp class DoubleMatrix extends Matrix implements Cloneable, Se
   }
 
   /**
-   * 行列の指定した位置に要素をセットする. Set a single element.
-   * 
+   * 行列の指定した位置に単一の要素をセットする。
+   *
    * @param i
-   *          Row index.
+   *          行インデックス
    * @param j
-   *          Column index.
+   *          列インデックス
    * @param s
    *          A(i,j).
    * @return matrix
@@ -785,16 +785,16 @@ public final strictfp class DoubleMatrix extends Matrix implements Cloneable, Se
   }
 
   /**
-   * 部分行列をセットする. Set a submatrix.
-   * 
+   * 部分行列をセットする。
+   *
    * @param i0
-   *          Initial row index
+   *          先頭の行インデックス
    * @param i1
-   *          Final row index
+   *          末端の行インデックス
    * @param j0
-   *          Initial column index
+   *          先頭の列インデックス
    * @param j1
-   *          Final column index
+   *          末端の列インデックス
    * @param x
    *          A(i0:i1,j0:j1)
    * @return matrix
@@ -809,23 +809,23 @@ public final strictfp class DoubleMatrix extends Matrix implements Cloneable, Se
         }
       }
     } catch (ArrayIndexOutOfBoundsException e) {
-      throw new ArrayIndexOutOfBoundsException("Submatrix indices.");
+      throw new ArrayIndexOutOfBoundsException("部分行列のインデックス。");
     }
     return new DoubleMatrix(d);
   }
 
   /**
-   * Set a submatrix.
-   * 
+   * 部分行列をセットする。
+   *
    * @param i0
-   *          Initial row index
+   *          先頭の列インデックス
    * @param i1
-   *          inal row index
+   *          末端の列インデックス
    * @param col
-   *          Array of column indices.
+   *          列インデックスの配列
    * @param x
    *          A(i0:i1,c(:))
-   * @return matrix
+   * @return 行列
    */
   public DoubleMatrix setMatrix(final int i0, final int i1, final int[] col, final DoubleMatrix x) {
 
@@ -843,17 +843,17 @@ public final strictfp class DoubleMatrix extends Matrix implements Cloneable, Se
   }
 
   /**
-   * Set a submatrix.
-   * 
+   * 部分行列をセットする。
+   *
    * @param row
-   *          Array of row indices.
+   *          行インデックスの配列
    * @param j0
-   *          Initial column index
+   *          先頭の列インデックス
    * @param j1
-   *          Final column index
+   *          末端の列インデックス
    * @param x
    *          A(r(:),j0:j1)
-   * @return matrix
+   * @return 行列
    */
   public DoubleMatrix setMatrix(final int[] row, final int j0, final int j1, final DoubleMatrix x) {
 
@@ -871,15 +871,15 @@ public final strictfp class DoubleMatrix extends Matrix implements Cloneable, Se
   }
 
   /**
-   * Set a submatrix.
-   * 
+   * 部分行列をセットする。
+   *
    * @param row
-   *          Array of row indices.
+   *          行インデックスの配列。
    * @param col
-   *          Array of column indices.
+   *          列インデックスの配列。
    * @param x
    *          A(r(:),c(:))
-   * @return matrix
+   * @return 行列
    */
   public DoubleMatrix setMatrix(final int[] row, final int[] col, final DoubleMatrix x) {
     final double[][] d = Arrays.copyOf(this.matrix, this.matrix.length);
@@ -890,14 +890,14 @@ public final strictfp class DoubleMatrix extends Matrix implements Cloneable, Se
         }
       }
     } catch (ArrayIndexOutOfBoundsException e) {
-      throw new ArrayIndexOutOfBoundsException("Submatrix indices.");
+      throw new ArrayIndexOutOfBoundsException("部分行列のインデックス。");
     }
     return new DoubleMatrix(d);
   }
 
   /**
    * 行列の個々の要素の正弦(sine).
-   * 
+   *
    * @since 1.1
    * @return 行列の個々の要素に対する正弦
    */
@@ -913,7 +913,7 @@ public final strictfp class DoubleMatrix extends Matrix implements Cloneable, Se
 
   /**
    * 行列の要素の平方.
-   * 
+   *
    * @since 1.1
    * @return 行列の個々の要素を平方した行列
    */
@@ -928,11 +928,11 @@ public final strictfp class DoubleMatrix extends Matrix implements Cloneable, Se
   }
 
   /**
-   * C = a - b.
-   * 
+   * 行列の減算 (C = a - b).
+   *
    * @param b
-   *          another matrix
-   * @return a + b
+   *          もうひとつの行列
+   * @return this - b
    */
   public DoubleMatrix subtract(final DoubleMatrix b) {
     this.checkMatrixDimensions(b);
@@ -947,7 +947,7 @@ public final strictfp class DoubleMatrix extends Matrix implements Cloneable, Se
 
   /**
    * 行列の列のみの各要素の和を行ベクトルで返す.
-   * 
+   *
    * @return 各列の平均値の行ベクトル
    * @since 1.1
    */
@@ -968,7 +968,7 @@ public final strictfp class DoubleMatrix extends Matrix implements Cloneable, Se
 
   /**
    * 行列の個々の要素の正接(tangent).
-   * 
+   *
    * @since 1.1
    * @return 行列の個々の要素に対する正弦
    */
@@ -983,10 +983,10 @@ public final strictfp class DoubleMatrix extends Matrix implements Cloneable, Se
   }
 
   /**
-   * Multiply a matrix by a scalar, c = s * a.
-   * 
+   * 行列のスカラー倍 ( c = s * a).
+   *
    * @param s
-   *          scalar
+   *          スカラー
    * @return s * a
    */
   public DoubleMatrix times(final double s) {
@@ -1000,10 +1000,10 @@ public final strictfp class DoubleMatrix extends Matrix implements Cloneable, Se
   }
 
   /**
-   * Element-by-element multiplication, C = a .* b.
-   * 
+   * 行列の個々の要素どうしの積　( C = a .* b).
+   *
    * @param b
-   *          another matrix
+   *          もうひとつの行列
    * @return a.*b
    */
   public DoubleMatrix times(final DoubleMatrix b) {
@@ -1018,8 +1018,8 @@ public final strictfp class DoubleMatrix extends Matrix implements Cloneable, Se
   }
 
   /**
-   * 転置行列を返す. DoubleMatrix transpose.
-   * 
+   * 転置行列を返す.
+   *
    * @return a'
    */
   public DoubleMatrix transpose() {
@@ -1035,7 +1035,7 @@ public final strictfp class DoubleMatrix extends Matrix implements Cloneable, Se
   /**
    * 行列の指定されたインデックスの一列を削除する. <br />
    * 列を削除すると行列の列数が1小さくなる.
-   * 
+   *
    * @param index
    *          列を削除する位置
    * @return 列を1つ削除された行列を返す
@@ -1076,7 +1076,7 @@ public final strictfp class DoubleMatrix extends Matrix implements Cloneable, Se
 
   /**
    * 行列の指定されたインデックスの一行を削除する. 行を削除すると行列の行数が1小さくなる.
-   * 
+   *
    * @param index
    *          行を削除する位置
    * @return 行を1つ削除された行列を返す
@@ -1114,7 +1114,7 @@ public final strictfp class DoubleMatrix extends Matrix implements Cloneable, Se
   /**
    * 行列に指定された値を指定された列に挿入する. <br />
    * 列を挿入すると行列の列数が1大きくなる.
-   * 
+   *
    * @param element
    *          挿入するdouble[]型の列
    * @param index
@@ -1153,7 +1153,7 @@ public final strictfp class DoubleMatrix extends Matrix implements Cloneable, Se
   /**
    * 行列に指定された値を指定された列に挿入する. <br />
    * 列を挿入すると行列の列数が1大きくなる.
-   * 
+   *
    * @param element
    *          挿入するDoubleVector型の列
    * @param index
@@ -1168,7 +1168,7 @@ public final strictfp class DoubleMatrix extends Matrix implements Cloneable, Se
   /**
    * 行列に指定された値を指定された行に挿入する. <br />
    * 行を挿入すると行列の行数が1大きくなる.
-   * 
+   *
    * @param element
    *          挿入するdouble[]型の行
    * @param index
@@ -1214,7 +1214,7 @@ public final strictfp class DoubleMatrix extends Matrix implements Cloneable, Se
   /**
    * 行列に指定された値を指定された行に挿入する. <br />
    * 行を挿入すると行列の行数が1大きくなる.
-   * 
+   *
    * @param element
    *          挿入するDoubleVector型の行
    * @param index
@@ -1228,7 +1228,7 @@ public final strictfp class DoubleMatrix extends Matrix implements Cloneable, Se
 
   /**
    * 行列の個々の要素の双曲線正弦(Hyperolic Sine).
-   * 
+   *
    * @return 行列の個々の要素に対する双曲線正弦
    * @since 2005/01/04
    */
@@ -1244,7 +1244,7 @@ public final strictfp class DoubleMatrix extends Matrix implements Cloneable, Se
 
   /**
    * 行列の個々の要素の双曲線余弦(Hyperolic Cosine).
-   * 
+   *
    * @return 行列の個々の要素に対する双曲線余弦
    * @since 2005/01/04
    */
@@ -1260,7 +1260,7 @@ public final strictfp class DoubleMatrix extends Matrix implements Cloneable, Se
 
   /**
    * 行列の個々の要素の双曲線正接(Hyperolic Tangent).
-   * 
+   *
    * @return 行列の個々の要素に対する双曲線正接
    * @since 2005/01/04
    */
@@ -1276,7 +1276,7 @@ public final strictfp class DoubleMatrix extends Matrix implements Cloneable, Se
 
   /**
    * 行列の個々の要素の逆双曲線正弦(Inverse Hyperolic Sine).
-   * 
+   *
    * @return 行列の個々の要素に対する逆双曲線正弦
    * @since 2005/01/04
    */
@@ -1292,7 +1292,7 @@ public final strictfp class DoubleMatrix extends Matrix implements Cloneable, Se
 
   /**
    * 行列の個々の要素の逆双曲線余弦(Inverse Hyperolic Cosine).
-   * 
+   *
    * @return 行列の個々の要素に対する逆双曲線余弦
    * @since 2005/01/04
    */
@@ -1308,7 +1308,7 @@ public final strictfp class DoubleMatrix extends Matrix implements Cloneable, Se
 
   /**
    * 行列の個々の要素の逆双曲線正接(Inverse Hyperolic Tangent).
-   * 
+   *
    * @return 行列の個々の要素に対する逆双曲線正接
    * @since 2005/01/04
    */
@@ -1324,7 +1324,7 @@ public final strictfp class DoubleMatrix extends Matrix implements Cloneable, Se
 
   /**
    * このオブジェクトの文字列表現.
-   * 
+   *
    * @return 文字列表現
    * @see java.lang.Object#toString()
    * @since 2005/05/17
@@ -1368,7 +1368,7 @@ public final strictfp class DoubleMatrix extends Matrix implements Cloneable, Se
 
   /**
    * 行列の個々の要素の立方根(3√)(cube root)を求める.
-   * 
+   *
    * @return 行列の個々の要素に対する立方根
    * @since 2005/01/04
    */
@@ -1384,7 +1384,7 @@ public final strictfp class DoubleMatrix extends Matrix implements Cloneable, Se
 
   /**
    * ふたつのオブジェクトが同値であればtrueを返す.
-   * 
+   *
    * @param other
    *          比較対象
    * @return 同値であればtrue
@@ -1401,7 +1401,7 @@ public final strictfp class DoubleMatrix extends Matrix implements Cloneable, Se
 
   /**
    * ハッシュコードを求める.
-   * 
+   *
    * @return ハッシュコード
    * @see java.lang.Object#hashCode()
    */
